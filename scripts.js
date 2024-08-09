@@ -63,10 +63,21 @@ const playGame = () => {
     }
 
     for (let i = 0; i < 5; i++) {
+        console.log(`\n Round${i + 1}`)
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
     
         playRound(humanSelection, computerSelection);
+
+        if (i === 4) {
+            if (humanScore > computerScore) {
+                console.log("The game has ended...\nYou are the winner!")
+            } else if (humanScore < computerScore) {
+                console.log("The game has ended...\nComputer is the winner.")
+            } else {
+                console.log("The game has ended...\nDraw.")
+            }
+        }
     }
 }
 
