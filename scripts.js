@@ -28,7 +28,7 @@ const getHumanChoice = () => {
     }
 } 
 
-const playGame = () => {
+// const playGame = () => {
     let humanScore = 0;
     let computerScore = 0;
 
@@ -62,23 +62,31 @@ const playGame = () => {
         console.log(`Computer score: ${computerScore}`);
     }
 
-    for (let i = 0; i < 5; i++) {
-        console.log(`\n Round${i + 1}`)
-        const humanSelection = getHumanChoice();
+    // for (let i = 0; i < 5; i++) {
+    //     console.log(`\n Round${i + 1}`)
         const computerSelection = getComputerChoice();
     
-        playRound(humanSelection, computerSelection);
+        // playRound(humanSelection, computerSelection);
 
-        if (i === 4) {
-            if (humanScore > computerScore) {
-                console.log("The game has ended...\nYou are the winner!")
-            } else if (humanScore < computerScore) {
-                console.log("The game has ended...\nComputer is the winner.")
-            } else {
-                console.log("The game has ended...\nDraw.")
-            }
+    //     if (i === 4) {
+    //         if (humanScore > computerScore) {
+    //             console.log("The game has ended...\nYou are the winner!")
+    //         } else if (humanScore < computerScore) {
+    //             console.log("The game has ended...\nComputer is the winner.")
+    //         } else {
+    //             console.log("The game has ended...\nDraw.")
+    //         }
+    //     }
+    // }
+// }
+// playGame();
+
+document.addEventListener("DOMContentLoaded", function() {
+    let body = document.querySelector("body");
+    body.addEventListener("click", (e) => {
+        if (e.target.className === "choice") {
+            const humanSelection = e.target.textContent.toLowerCase();
+            playRound(humanSelection, computerSelection);
         }
-    }
-}
-
-playGame();
+    });
+});
